@@ -15,11 +15,11 @@
     
 </nav>
 
-<div class="mt-20 flex flex-col items-center md:flex md:flex-row md:items-start md:gap-30 md:justify-center">
+<div class="mt-10 flex flex-col items-center md:flex md:flex-row md:items-start md:mt-20 md:gap-30 md:justify-center">
     <div class="mt-15 ml-3">
         <p class="text-[#EE4E56] text-xl font-bold">Welcome</p>
-        <p class="text-3xl mt-2 font-bold">I am a software developer</p>
-        <p class="text-sm mt-3.5 max-w-100">My name is Job, and I am a university student in Brazil. I am passionate about learning new technologies and expanding my knowledge. In my free time, I enjoy reading books and exploring different cultures.</p>
+        <p class="text-3xl mt-2 font-bold">I am a psychologist</p>
+        <p class="text-sm mt-3.5 max-w-100">My name is Bob, and I am a university student in Brazil majoring in <span class="font-bold">Psychology</span>. I am passionate about understanding human behavior and mental processes.</p>
 
         <!-- icons desktop version -->
         <div class="mt-10 gap-8 hidden md:flex justify-center">
@@ -30,7 +30,7 @@
     </div>
 
         <div class="mt-15 md:mt-0">
-        <img src="images/person1.jpeg" class="w-60 h-80 rounded-2xl shadow-2xl shadow-gray-700" alt="">
+        <img src="images/person1.jpeg" class="w-60 h-80 rounded-2xl shadow-2xl shadow-gray-700" alt="person image">
     
 
         <!-- icons mobile version -->
@@ -44,8 +44,96 @@
 
 </div>
 
+<!--div image pc and profile-->
+
+<div class="flex flex-col-reverse mt-30 gap-15 items-center md:gap-20 md:mt-40 md:flex-row md:justify-center">
+<!-- <div>
+    <img src="images/programmer-setup.jpeg" class="w-80 h-70 rounded-2xl shadow-2xl shadow-gray-500" alt="person image2">
+</div> -->
+
+<div class="relative w-80 sm:w-80 h-64 sm:h-70 rounded-2xl shadow-2xl shadow-gray-500 overflow-hidden">
+  <div id="carousel-images" class="flex transition-transform duration-500 ease-in-out">
+    <img src="images/programmer-setup.jpeg" class="w-72 sm:w-80 h-64 sm:h-70 object-cover flex-shrink-0" alt="setup 1">
+    <img src="images/man-and-pc.jpg" class="w-72 sm:w-80 h-64 sm:h-70 object-cover flex-shrink-0" alt="setup 2">
+    <img src="images/person2.jpeg" class="w-72 sm:w-80 h-64 sm:h-70 object-cover flex-shrink-0" alt="setup 3">
+  </div>
+
+  <!-- Botões de navegação -->
+  <button onclick="prevSlide()" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-1">
+    ◀
+  </button>
+  <button onclick="nextSlide()" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-1">
+    ▶
+  </button>
+</div>
+
+
+<!-- div description-->
+<div>
+    <div>
+        <p class="text-[#E87C4C] text-2xl font-bold">Background</p>
+
+        <p class="text-sm mt-3.5 max-w-90">In my free time, I enjoy reading books related to mental health and exploring different cultures, which helps me gain broader perspectives on people and society.</p>
+    </div>
+    
+   <!--div profile--> 
+
+    <div  class="mt-3">
+        <p class="font-sans text-sm"><span class="text-[#E87C4C] font-bold text-base">Age: </span>25</p>
+        <p class="font-sans text-sm"><span class="text-[#E87C4C] font-bold text-base">Specialization: </span>Human development</p>
+        <p class="font-sans text-sm"><span class="text-[#E87C4C] font-bold text-base">Languages: </span>Portuguese, English</p>
+
+    </div>
+</div>
+
+</div>
+
+<!--div services-->
+<div class="m-15 md:mt-25">
+<p class="flex text-3xl font-bold items-center justify-center">My services</p>
+
+</div>
 
 
 
+<script>
+  let currentIndex = 0;
+  const carousel = document.getElementById("carousel-images");
+  const totalSlides = carousel.children.length;
+  const slideWidth = 288; 
+
+  function updateCarousel() {
+    const offset = -currentIndex * slideWidth;
+    carousel.style.transform = `translateX(${offset}px)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  let autoplay = setInterval(nextSlide, 3000);
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(nextSlide, 3000);
+  }
+
+ 
+  document.querySelector("button[onclick='prevSlide()']").onclick = () => {
+    prevSlide();
+    resetAutoplay();
+  };
+
+  document.querySelector("button[onclick='nextSlide()']").onclick = () => {
+    nextSlide();
+    resetAutoplay();
+  };
+</script>
 </body>
 </html>
