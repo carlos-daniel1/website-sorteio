@@ -500,6 +500,9 @@
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
+  .pr-3 {
+    padding-right: calc(var(--spacing) * 3);
+  }
   .pl-0 {
     padding-left: calc(var(--spacing) * 0);
   }
